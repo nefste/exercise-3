@@ -1,0 +1,14 @@
+PREFIX was: <https://was-course.interactions.ics.unisg.ch/farm-ontology#>
+PREFIX hmas: <https://purl.org/hmas/>
+PREFIX td: <https://www.w3.org/2019/wot/td#>
+PREFIX : <https://was-course.interactions.ics.unisg.ch/farm-ontology#>
+PREFIX ex: <https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-stephan#>
+
+SELECT ?crop ?section
+WHERE {
+GRAPH <https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-stephan#> {
+   ?farm a was:Farm.
+   ?farm was:containsSection ?section.
+   ?section was:hasCropType ?crop.
+  }
+}

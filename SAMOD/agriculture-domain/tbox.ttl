@@ -11,6 +11,16 @@
                                                               rdfs:comment "An ontology for representing knowledge useful for the management of farms."@en ;
                                                               vann:preferredNamespacePrefix "was" .
 
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -32,3 +42,94 @@ was:Coordinates rdf:type owl:Class ;
 
 was:SoilMoisture rdf:type owl:Class ;
                  rdfs:comment "The level of moisture in soil."@en .
+				 
+was:LandSection rdf:type owl:Class ;
+                rdfs:comment "A specific area of a farm designated for growing a particular type of crop."@en .
+
+
+was:CropType rdf:type owl:Class ;
+             rdfs:comment "type of crop"@en .
+
+
+was:Crop rdf:type owl:Class ;
+         rdfs:comment "A plant or plant product that is grown and harvested."@en .
+
+was:Agent rdf:type owl:Class ;
+          rdfs:comment "An autonomous entity that performs actions on the farm."@en .
+
+was:MoistureLevelRequirement rdf:type owl:Class ;
+                             rdfs:comment "Specific moisture level needed for a crop type to grow optimally."@en .		 
+
+
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+
+was:currentMoistureLevel rdf:type owl:ObjectProperty ;
+                         rdfs:domain was:LandSection ;
+                         rdfs:range was:SoilMoisture ;
+                         rdfs:comment "indicates the believed moisture level in the section. Read by the ReadSoilMoistureAffordance."@en .
+
+
+was:grows rdf:type owl:ObjectProperty ;
+          rdfs:domain was:LandSection ;
+          rdfs:range was:Crop ;
+          rdfs:comment "Associates a land section with the crop it grows."@en .
+
+
+was:requiredMoistureLevel rdf:type owl:ObjectProperty ;
+                          rdfs:domain was:CropType ;
+                          rdfs:range was:MoistureLevelRequirement ;
+                          rdfs:comment "The moisture level required for optimal growth of a crop type."@en .
+
+
+was:hasLandSection rdf:type owl:ObjectProperty ;
+                   rdfs:domain was:Farm ;
+                   rdfs:range was:LandSection ;
+                   rdfs:comment "Associates a farm with its land sections."@en .
+
+
+was:hasAgent rdf:type owl:ObjectProperty ;
+             rdfs:domain was:Tractor ;
+             rdfs:range was:Agent ;
+             rdfs:comment "Associates a tractor with an autonomous agent that operates it."@en .
+
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+
+was:moistureLevel rdf:type owl:DatatypeProperty ;
+				  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:domain was:SoilMoisture ;
+                  rdfs:range xsd:integer ;
+                  rdfs:comment "The moisture level of the soil."@en .
+				  
+was:X1 rdf:type owl:DatatypeProperty ;
+				  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:domain was:Coordinates ;
+                  rdfs:range xsd:integer ;
+                  rdfs:comment "Coordinate X1"@en .
+				  
+was:X2 rdf:type owl:DatatypeProperty ;
+				  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:domain was:Coordinates ;
+                  rdfs:range xsd:integer ;
+                  rdfs:comment "Coordinate X2"@en .
+				  
+was:Y1 rdf:type owl:DatatypeProperty ;
+				  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:domain was:Coordinates ;
+                  rdfs:range xsd:integer ;
+                  rdfs:comment "Coordinate Y1"@en .
+				  
+was:Y2 rdf:type owl:DatatypeProperty ;
+				  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:domain was:Coordinates ;
+                  rdfs:range xsd:integer ;
+                  rdfs:comment "Coordinate Y2"@en .

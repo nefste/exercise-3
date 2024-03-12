@@ -58,3 +58,61 @@ ex:tractor-ae039570-396e-424f-9008-2142c3201b73 a td:Thing, was:Tractor;
       ]
     ]
   ] .
+
+
+
+ex:section1 a was:LandSection;
+  was:hasCoordinates [ 
+    a was:Coordinates;
+    was:X1 "0"^^xsd:int; 
+    was:Y1 "0"^^xsd:int;
+    was:X2 "1"^^xsd:int; 
+    was:Y2 "1"^^xsd:int 
+  ];
+  was:grows ex:wheatCrop1 .
+
+ex:section2 a was:LandSection;
+  was:hasCoordinates [ 
+    a was:Coordinates;
+    was:X1 "1"^^xsd:int; 
+    was:Y1 "0"^^xsd:int;
+    was:X2 "2"^^xsd:int; 
+    was:Y2 "1"^^xsd:int 
+  ];
+  was:grows ex:wheatCrop2 .
+
+ex:section3 a was:LandSection;
+  was:hasCoordinates [ 
+    a was:Coordinates;
+    was:X1 "0"^^xsd:int; 
+    was:Y1 "1"^^xsd:int;
+    was:X2 "1"^^xsd:int; 
+    was:Y2 "2"^^xsd:int 
+  ];
+  was:grows ex:cornCrop1 .
+
+ex:section4 a was:LandSection;
+  was:hasCoordinates [ 
+    a was:Coordinates;
+    was:X1 "1"^^xsd:int; 
+    was:Y1 "1"^^xsd:int;
+    was:X2 "2"^^xsd:int; 
+    was:Y2 "2"^^xsd:int 
+  ];
+  was:grows ex:cornCrop2 .
+
+ex:wheatCrop1 a was:Crop;
+  was:hasCropType was:Wheat;
+  was:requiredMoistureLevel "120"^^xsd:int .
+
+ex:wheatCrop2 a was:Crop;
+  was:hasCropType was:Wheat;
+  was:requiredMoistureLevel "120"^^xsd:int .
+
+ex:cornCrop1 a was:Crop;
+  was:hasCropType was:Corn;
+  was:requiredMoistureLevel "80"^^xsd:int .
+
+ex:cornCrop2 a was:Crop;
+  was:hasCropType was:Corn;
+  was:requiredMoistureLevel "80"^^xsd:int .
